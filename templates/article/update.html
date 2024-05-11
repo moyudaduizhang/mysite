@@ -1,0 +1,27 @@
+{% extends "../base.html" %}{% load static %}
+{% block title %}
+    update article
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <br>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">文章标题</label>
+                        <!-- 输入框 -->
+                        <input type="text" class="form-control" id="title" name="title" value="{{ article.title }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">文章正文</label>
+                        <textarea type="text" class="form-control" id="body" name="body"
+                                  rows="12">{{ article.body }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">完成</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
